@@ -66,13 +66,13 @@ def similarity_search(
 # Example usage
 if __name__ == "__main__":
     # Load your custom database
-    database_file = "./database.csv"
+    database_file = "./AMG_510_database.csv"
     database = load_database(database_file)
 
     # Print Banner
     banner(title="Similarity Search with a Custom Database")
     # Define a query molecule (SMILES string)
-    query_smi = "CC(=O)OC1=CC=CC=C1C(=O)O" # Aspirin
+    query_smi = "c1(c(N2CCN(C(C=C)=O)CC2)nnc3c4c(CC)cccc4)c3cc(c5c(O)cccc5F)c(Cl)c1" # Compound #5 X = N
 
     # Perform similarity search
     similar_results = similarity_search(query_smi, database)
@@ -82,3 +82,14 @@ if __name__ == "__main__":
     for mol, similarity in similar_results:
         smi = Chem.MolToSmiles(mol)
         print(f"SMILES: {smi}, Similarity: {similarity:.3f}")
+
+"""
+Expected Output:
+==================== Similarity Search with a Custom Database ====================
+Similar molecules to c1(c(N2CCN(C(C=C)=O)CC2)nnc3c4c(CC)cccc4)c3cc(c5c(O)cccc5F)c(Cl)c1:
+SMILES: C=CC(=O)N1CCN(c2nnc(-c3ccccc3CC)c3cc(-c4c(O)cccc4F)c(Cl)cc23)CC1, Similarity: 1.000
+SMILES: C=CC(=O)N1CCN(c2nnc(-c3ccccc3C(C)C)c3cc(-c4c(O)cccc4F)c(Cl)cc23)CC1, Similarity: 0.980
+SMILES: C=CC(=O)N1CCN(c2nnc(-c3ccccc3C)c3cc(-c4c(O)cccc4F)c(Cl)cc23)CC1, Similarity: 0.968
+SMILES: C=CC(=O)N1CCN(c2nnc(-c3ccccc3C3CC3)c3cc(-c4c(O)cccc4F)c(Cl)cc23)CC1, Similarity: 0.957
+SMILES: C=CC(=O)N1CCN(c2nnc(-c3ccccc3)c3cc(-c4c(O)cccc4F)c(Cl)cc23)CC1, Similarity: 0.905
+"""

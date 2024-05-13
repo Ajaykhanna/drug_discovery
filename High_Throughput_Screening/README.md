@@ -2,9 +2,8 @@
 
 This repository contains examples on how to use high throughput screening to narrow down the drug candidates with the required features.
 
-## Similarity Screening with Custom Database
-
-This repo shows an example of using RdKit to perform similarity search on the existing custom database. 
+## Similarity Screening with Custom KRAS-G12C Database
+This repo shows an example of using RdKit to perform similarity search on the existing custom database. The datasaet "AMG_510_database.csv" was downloaded from the [AMG-510](https://pubs.acs.org/doi/10.1021/acs.jmedchem.9b01180) supporting information of Discovery of a Covalent Inhibitor of KRAS-G12C (AMG 510) for the Treatment of Solid Tumors Article. The following repo is only for undertanding the similarity screening, none of the dataset or results should be used for making any medical decisions.
 
 ### Getting Started
 
